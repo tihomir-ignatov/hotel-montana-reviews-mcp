@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: hotel-montana-reviews-mcp
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: GBP_ACCOUNT_ID
+        value: "105488431171037186294"
+      - key: GBP_LOCATION_ID
+        value: "2789815732291784272"
+      - key: MCP_SECRET
+        generateValue: true
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REFRESH_TOKEN
+        sync: false
